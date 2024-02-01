@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
+from .api.routers import customer
 origins = [
     "*",
 ]
@@ -18,3 +18,6 @@ app.add_middleware(
 @app.get("/")
 def home():
     return {"message": "Welcome to EateryConnectAPI"}
+
+
+app.include_router(customer.router)
