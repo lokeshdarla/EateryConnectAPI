@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api.routers import customer
+from .api.routers import customer,auth
 origins = [
     "*",
 ]
@@ -21,3 +21,4 @@ def home():
 
 
 app.include_router(customer.router)
+app.include_router(auth.router)
